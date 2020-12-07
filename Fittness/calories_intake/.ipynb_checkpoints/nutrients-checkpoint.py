@@ -98,12 +98,12 @@ def calCalories(protI, fatI, carbI):
     prot = Protein('protein', protI, 4)
     fat = Fat('fat', fatI, 9)
     carb = Carbohydrate('carbohydrate', carbI, 4)
-    print('Summary:')
-    prot.displaypCalories()
-    fat.displayfCalories()
-    carb.displaycCalories()
+#     print('Summary:')
+#     prot.displaypCalories()
+#     fat.displayfCalories()
+#     carb.displaycCalories()
     totalCalo = prot.protCal() + fat.fatCal() + carb.carbCal()
-    print('The total calories you have intaken today is {:.2f}'.format(totalCalo))
+    return totalCalo
     
     
 def bodyNeeds(w, h, s, age, proAmt, fatAmt, carbAmt, fac):
@@ -116,10 +116,10 @@ def bodyNeeds(w, h, s, age, proAmt, fatAmt, carbAmt, fac):
     rdaCarb = 0.65 * totalCalo
     if s == 'f':
         bmr = (447.6 + 9.25 * w) + (3.10 * h) - (4.33 * age)
-        amr = bmr * fac
+        amr = round(bmr * fac, 0)
     elif s == 'm':
         bmr = (88.4 + 13.4 * w) + (4.8 * h) - (5.68 * age)
-        amr = bmr * fac
+        amr = round(bmr * fac, 0)
     if prot.amount < rdaPro:
         diffP = rdaPro - prot.protCal()
         print('You need to intake {:.2f} more calorie from protein!'.format(diffP))
@@ -138,10 +138,10 @@ def bodyNeeds(w, h, s, age, proAmt, fatAmt, carbAmt, fac):
     
     if totalCalo > amr:
         diffCal = totalCalo - amr
-        print('You need to cut down your daily calorie intake by {:.2f} or do more exercises!'.format(diffCal))
+        return 'You need to cut down your daily calorie intake or do more exercise!'
     elif totalCalo == amr:
-        print('You are doing great to maintain your weight!')
+        return 'You are doing great to maintain your weight!'
     else:
         diffCal = amr - totalCalo
-        print('You need to intake {:.2f} more calories daily!'.format(diffCal))
+        return 'You need to intake more calories daily!'
     
