@@ -10,10 +10,11 @@ class Records:
         self.weight=weight 
         self.name=name
         self.age=age
+        self.bmi_range="n"
     
     
     def display(self):
-        print("Name: {} Age: {} Gender:{} Height: {}cm Wegiht: {}kg ".format(self.name,self.age,self.gender,self.height,self.weight))
+        return "Name: {} Age: {} Gender:{} Height: {}cm Wegiht: {}kg".format(self.name,self.age,self.gender,self.height,self.weight)
      
         
     def BMI(self):
@@ -25,15 +26,15 @@ class Records:
         """
         bmi=self.weight/(self.height/100)**2
         if bmi<18.5:
-            bmi_range="underweight"
+            self.bmi_range="underweight"
         elif bmi>18.5 and bmi<25:
-            bmi_range="normal"
+            self.bmi_range="normal"
         elif bmi>25 and bmi<30:
-            bmi_range="overweight"
+            self.bmi_range="overweight"
         elif bmi>30:
-            bmi_range="obese"
+            self.bmi_range="obese"
         self.bmi=bmi    
-        print("Hello,{} your BMI is {:0.2f} which is in {} range".format(self.name,bmi,bmi_range))
+        return "Hello,{} your BMI is {:0.2f} which is in {} range".format(self.name,bmi,self.bmi_range)
         
     def BMR(self):
         """
@@ -54,7 +55,7 @@ class Records:
         else:
             bmr= 66 + (13.7*self.weight) + (5*self.height) - (6.8*self.age)
         self.bmr=bmr
-        print("Hello,{} your BMR is around {} Kcal/day".format(self.name,bmr))
+        return "Hello,{} your BMR is around {} Kcal/day".format(self.name,bmr)
     
     def totalcal(self):
         """
@@ -80,7 +81,7 @@ class Records:
 
         exc_cal=time*(intensity*3.5*self.weight)/200
         total=round(exc_cal+self.bmr)
-        print("Hello,the total burned calories for today is {} Kcal".format(total))
+        print("Hello,the total burned calories for today is {} cal".format(total))
         return total
 
 
