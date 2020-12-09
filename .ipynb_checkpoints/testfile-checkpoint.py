@@ -21,7 +21,7 @@ P1.totalcal()
 
 
 print("You could calculate your burned calories for today from Records.totalcal")
-calory=float(input("Please Enter your calory in kcal: "))
+calory=float(input("Please Enter your calory in cal: "))
 
 
 M1=monitoring.Monitoring(name,gender,age,height,weight,calory)

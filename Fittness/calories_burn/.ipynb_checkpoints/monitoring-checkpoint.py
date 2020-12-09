@@ -17,9 +17,11 @@ class Monitoring(records.Records):
     
     def new_weight(self,newweight):
         self.weight_list.append(newweight)
+        return self.weight_list
     
-    def new_calory  (self,newcalory):
+    def new_calory(self,newcalory):
         self.calories_list.append(newcalory)
+        return self.calories_list
     
     def weight_change_plot(self):
         line_chart = pygal.Line()
@@ -35,7 +37,7 @@ class Monitoring(records.Records):
         line_chart = pygal.Line()
         line_chart.title = 'Daily Burned Calories '
         line_chart.x_title='Day'
-        line_chart.y_title='kcal'
+        line_chart.y_title='cal'
         line_chart.add(self.name, self.calories_list)
         line_chart.x_labels = map(str, range(0,len(self.calories_list)))
         line_chart.render()
