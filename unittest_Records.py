@@ -60,6 +60,6 @@ class TestRecords(unittest.TestCase):
         
     @classmethod   
     def tearDownClass(cls):
-        print("Tear Down Class")
+        print("Tear Down class")
 unittest.main(argv=[''], verbosity=2, exit=False)  
 
