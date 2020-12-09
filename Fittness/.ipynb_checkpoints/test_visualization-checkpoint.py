@@ -43,7 +43,7 @@ class TestVisualization(unittest.TestCase):
         self.assertEqual(str(type(self.v7)), "<class 'bokeh.plotting.figure.Figure'>")
        
     
-    @mock.patch('calories_intake.visualization.input', create=True)
+    @mock.patch('Fittness.calories_intake.visualization.input', create=True)
     def test_entry(self, mocked_input):
         mocked_input.side_effect = ['50 60 45 87 32 69 78', '47 40 45 45 36 20 54', '126 155 102 135 120 169 110']
         self.assertEqual(vi.entry(), [1127.0, 1220.0, 993.0, 1293.0, 932.0, 1132.0, 1238.0])
